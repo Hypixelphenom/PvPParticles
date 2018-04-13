@@ -19,6 +19,8 @@ public class EffectManager {
 			case KillEffect.BLOCKBREAK:
 				playBlockBreak(entity,PvPParticles.killBlockID);
 				break;
+				playBlockBreak(entity,PvPParticles.killBlockID);
+				break;
 		}
 	}
 
@@ -27,6 +29,8 @@ public class EffectManager {
 			case KillEffect.NONE:
 				break;
 			case KillEffect.BLOCKBREAK:
+				playBlockBreak(x,y,z,eyeHeight,PvPParticles.killBlockID);
+				break;
 				playBlockBreak(x,y,z,eyeHeight,PvPParticles.killBlockID);
 				break;
 		}
@@ -88,6 +92,7 @@ public class EffectManager {
 
 	private static void spawnParticle(Entity entity,EnumParticleTypes particleType) {
 		entity.getEntityWorld().spawnParticle(particleType, entity.posX, entity.posY, entity.posZ, 0, 0, 0, new int[0]);
+		entity.getEntityWorld().spawnParticle(particleType, entity.posX, entity.posY, entity.posZ, 0, -1, 0, new int[0]);
 	}
 
 	private static void emitParticleAtEntity(Entity entity,EnumParticleTypes particleType) {
